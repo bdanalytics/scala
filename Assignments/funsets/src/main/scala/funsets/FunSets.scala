@@ -11,6 +11,8 @@ object FunSets {
    */
   type Set = Int => Boolean
 
+  def unary_! : Set = (s : Set) => !(s(_))
+
   /**
    * Indicates whether a set contains a given element.
    */
@@ -69,14 +71,16 @@ object FunSets {
    * Returns whether there exists a bounded integer within `s`
    * that satisfies `p`.
    */
-  def exists(s: Set, p: Int => Boolean): Boolean = {
-//    !forall(s, !p)
-    def iter(a: Int): Boolean = {
-      if (a > bound) false
-      else if (contains(s, a) && contains(filter(s, p), a)) true
-      else iter(a + 1)
-    }
-    iter(-bound)
+  def exists(s: Set, p: Int => Boolean): Boolean = (elem: Int) => {
+    !forall(s, !p)
+//    !forall(s, if (p(elem)) !p(elem) else true)
+//
+//    def iter(a: Int): Boolean = {
+//      if (a > bound) false
+//      else if (contains(s, a) && contains(filter(s, p), a)) true
+//      else iter(a + 1)
+//    }
+//    iter(-bound)
   }
   
   /**

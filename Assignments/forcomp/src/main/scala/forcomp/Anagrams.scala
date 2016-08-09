@@ -1,4 +1,7 @@
 package forcomp
+//package scala.tools.nsc.io._
+
+import java.io._
 
 object Anagrams {
 
@@ -306,4 +309,84 @@ object Anagrams {
 //      Nil
 //    }
 //  }
+
+  println("Sentence Anagrams for Trump Pence: " + sentenceAnagrams(List("Trump", "Pence")))
+
+  val ClintonKaineAnm = sentenceAnagrams(List("Clinton", "Kaine"))
+//  println("\nSentence Anagrams for Clinton Kaine: " + ClintonKaineAnm)
+  println("\n# of Sentence Anagrams for Clinton Kaine: " + ClintonKaineAnm.length)
+
+  val fltClintonKaineAnm = sentenceAnagrams(List("Clinton", "Kaine")) filter (e => !(
+    (e.toSet contains "Acton")    ||
+      (e.toSet contains "Al")    ||
+      (e.toSet contains "Alec")    ||
+    (e.toSet contains "Aleck")    ||
+      (e.toSet contains "Ali")    ||
+      (e.toSet contains "Alice")    ||
+      (e.toSet contains "Alton")    ||
+      (e.toSet contains "Ann")    ||
+      (e.toSet contains "Anne")    ||
+      (e.toSet contains "Annie")    ||
+      (e.toSet contains "Anton")    ||
+      (e.toSet contains "Cain")  ||
+        (e.toSet contains "Caine")  ||
+      (e.toSet contains "catlike")  ||
+      (e.toSet contains "Celia")    ||
+      (e.toSet contains "Celt")    ||
+      (e.toSet contains "Clint")    ||
+      (e.toSet contains "Clio")    ||
+      (e.toSet contains "Cole")    ||
+      (e.toSet contains "Conant")    ||
+      (e.toSet contains "Conklin")    ||
+      (e.toSet contains "Connie")    ||
+      (e.toSet contains "Eli")    ||
+      (e.toSet contains "en")    ||
+      (e.toSet contains "et")    ||
+      (e.toSet contains "Ian")    ||
+      (e.toSet contains "Ike")    ||
+      (e.toSet contains "Ilona")    ||
+      (e.toSet contains "Io")    ||
+      (e.toSet contains "Itel")    ||
+      (e.toSet contains "Ito")    ||
+      (e.toSet contains "Kane")    ||
+      (e.toSet contains "Kant")    ||
+      (e.toSet contains "Kent")    ||
+      (e.toSet contains "Kiel")    ||
+      (e.toSet contains "Klein")    ||
+      (e.toSet contains "Kline")    ||
+      (e.toSet contains "Lac")    ||
+      (e.toSet contains "Lao")    ||
+      (e.toSet contains "Leon")    ||
+      (e.toSet contains "Len")    ||
+      (e.toSet contains "Lena")    ||
+      (e.toSet contains "Lin")    ||
+      (e.toSet contains "Linton")    ||
+      (e.toSet contains "Locke")    ||
+      (e.toSet contains "Lockian")    ||
+      (e.toSet contains "Loki")    ||
+      (e.toSet contains "Nan")    ||
+      (e.toSet contains "Nat")    ||
+      (e.toSet contains "Nate")    ||
+      (e.toSet contains "Neal")    ||
+      (e.toSet contains "Neil")    ||
+      (e.toSet contains "Nina")    ||
+      (e.toSet contains "Noel")    ||
+      (e.toSet contains "Nolan")    ||
+      (e.toSet contains "Olin")    ||
+      (e.toSet contains "Tieck")    ||
+      (e.toSet contains "Tina")    ||
+      (e.toSet contains "Toni")    ||
+      false))
+//  println("\nFiltered Sentence Anagrams for Clinton Kaine: " + fltClintonKaineAnm)
+//  scala.tools.nsc.io.File("ClintonKaineAnagrams.txt").writeAll(fltClintonKaineAnm)
+
+  val file = "ClintonKaineAnagrams.txt"
+  val writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)))
+  for (x <- fltClintonKaineAnm) {
+    writer.write(x + "\n")  // however you want to format it
+  }
+  writer.close()
+
+  println("\n# of Filtered Sentence Anagrams for Clinton Kaine: " + fltClintonKaineAnm.length)
+
 }

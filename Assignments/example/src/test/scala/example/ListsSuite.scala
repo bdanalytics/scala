@@ -1,7 +1,6 @@
 package example
 
 import org.scalatest.FunSuite
-
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 
@@ -47,7 +46,7 @@ import org.scalatest.junit.JUnitRunner
    * This allows tests to be written in a more readable manner:
    */
   test("one plus one is three?") {
-    assert(1 + 1 != 3) // This assertion fails! Go ahead and fix it.
+    assert(1 + 1 == 3) // This assertion fails! Go ahead and fix it.
   }
 
 
@@ -113,44 +112,14 @@ import org.scalatest.junit.JUnitRunner
    * however it is recommended to write an individual `test` statement for
    * every tested aspect of a method.
    */
-
-  /* sum method tests */
   test("sum of a few numbers") {
     assert(sum(List(1,2,0)) === 3)
   }
 
-  test("sum of a few negative numbers") {
-    assert(sum(List(1,-2,-5)) === -6)
-  }
-
-  test("sum of a few zeros") {
-    assert(sum(List(0,0,0)) === 0)
-  }
-
-  test("sum of an empty list") {
-    assert(sum(List()) === 0)
-  }
-
-  /* max method tests */
   test("max of a few numbers") {
     assert(max(List(3, 7, 2)) === 7)
   }
 
-  test("max of a few negative numbers") {
-    assert(max(List(-1,-2,-5)) === -1)
-  }
-
-  test("max of a few zeros") {
-    assert(max(List(0,0,0)) === 0)
-  }
-
-  test("max of an empty list") {
-    assert(max(List()) === Int.MinValue)
-  }
-
-  test("max of repeated numbers") {
-    assert(max(List(3,5,5)) === 5)
-  }
 
 
 }
